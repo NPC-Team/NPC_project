@@ -7,14 +7,6 @@
 게임을 처음 시작하게 되면 유저를 안내해 주는 NPC가 있듯이 지도를 기반으로 한 서비스로 제주대를 낯설어하는 학생들에게 유용한 정보를 제공해 주고자 팀명을 NPC로 정했습니다.
 이후 이 NPC가 향후 패치로 개선됨으로써 양질의 서비스를 제공하고자 합니다.
 
-- 김승덕 / [@kimseungdeok](https://github.com/kimseungdeok) / PM
-
-- 강란규 / [@Yurang4](https://github.com/Yurang4)
-
-- 김경범 / [@Kimkyeongbeom4844](https://github.com/Kimkyeongbeom4844)
-
-- 김도윤 / [@Austinia](https://github.com/Austinia)
-
 ---
 
 ## 목표 및 활동계획
