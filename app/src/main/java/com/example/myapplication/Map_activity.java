@@ -11,14 +11,19 @@ import android.hardware.SensorEventListener;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.Surface;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -39,6 +44,7 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 import java.util.ArrayList;
 
 public class Map_activity extends AppCompatActivity implements LocationListener, MapEventsReceiver {
+    private BackPressCloseHandler backPressCloseHandler;
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
 
@@ -74,6 +80,8 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
 
         //inflate and create the map
         setContentView(R.layout.activity_map);
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
         map = (MapView) findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
@@ -236,4 +244,34 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
     public boolean longPressHelper(GeoPoint p) {
         return false;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void onBackPressed(){
+        backPressCloseHandler.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_map, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.action_10min:
+                Toast.makeText(this, "10분안에 돌파 클릭!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_whattaeat:
+                Toast.makeText(this, "뭐먹젠 클릭!", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_toilet:
+                Toast.makeText(this, "화장실 어디인 클릭!", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
