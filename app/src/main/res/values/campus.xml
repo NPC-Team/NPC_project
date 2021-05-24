@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+    <string-array name="campus">
+        <item>현재위치</item>
+        <item>간호대학</item>
+        <item>경상대학 1호관</item>
+        <item>경상대학 2호관</item>
+        <item>공과대학 4호관</item>
+        <item>공과대학 1호관</item>
+        <item>공과대학 3호관</item>
+        <item>공과대학 2호관</item>
+        <item>교양강의동</item>
+        <item>대학본관</item>
+        <item>문화교류관(박물관)</item>
+        <item>법학전문대학원</item>
+        <item>사범대학 1호관</item>
+        <item>사범대학 2호관</item>
+        <item>사회과학대학</item>
+        <item>수의과대학</item>
+        <item>생명자원과학대학 1호관</item>
+        <item>아라뮤즈홀</item>
+        <item>약학대학</item>
+        <item>인문대학 1호관</item>
+        <item>인문대학 2호관</item>
+        <item>예술디자인대학 미술관</item>
+        <item>예술디자인대학 음악관</item>
+        <item>운동장</item>
+        <item>외국어교육원</item>
+        <item>자연과학대학 1호관</item>
+        <item>자연과학대학 2호관</item>
+        <item>정보화 본부</item>
+        <item>중앙도서관</item>
+        <item>체육관</item>
+        <item>학생회관</item>
+        <item>학생생활관 1호관</item>
+        <item>학생생활관 2호관</item>
+        <item>학생생활관 3호관</item>
+        <item>학생생활관 4호관</item>
+        <item>학생생활관 5호관</item>
+        <item>학생생활관 6호관</item>
+        <item>해양과학대학 1호관</item>
+        <item>해양과학대학 3호관</item>
+        <item>해양과학대학 4호관</item>
+
+    </string-array>
+</resources>

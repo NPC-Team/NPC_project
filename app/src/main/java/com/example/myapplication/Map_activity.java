@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.hardware.GeomagneticField;
@@ -81,6 +82,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         //inflate and create the map
         setContentView(R.layout.activity_map);
 
+        //뒤로가기 버튼 핸들러
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         map = (MapView) findViewById(R.id.map);
@@ -261,13 +263,14 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.action_10min:
-                Toast.makeText(this, "10분안에 돌파 클릭!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, canigoPopupActivity.class);
+                startActivityForResult(intent, 1);
                 return true;
             case R.id.action_whattaeat:
-                Toast.makeText(this, "뭐먹젠 클릭!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "뭐먹젠 미구현", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_toilet:
-                Toast.makeText(this, "화장실 어디인 클릭!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "화장실 어디인 미구현", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

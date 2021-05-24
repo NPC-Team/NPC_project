@@ -31,5 +31,7 @@ package="com.example.myapplication">
         </intent-filter>
     </activity>
     <activity android:name="com.example.myapplication.Map_activity"></activity>
+    <activity android:name=".canigoPopupActivity" android:theme="@android:style/Theme.Dialog" />
+
 </application>
 </manifest>
