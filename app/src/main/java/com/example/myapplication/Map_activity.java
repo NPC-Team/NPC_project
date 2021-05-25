@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Surface;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -274,6 +275,22 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                //데이터 받기
+                String startToast = data.getStringExtra("출발지");
+                String comeToast = data.getStringExtra("도착지");
+                String startvalueToast = data.getStringExtra("출발좌표");
+                String comevalueToast = data.getStringExtra("도착좌표");
+                Toast.makeText(this,"선택한 출발지는 "+startToast+": "+startvalueToast+"\n선택한 도착지는 "+comeToast+": "+comevalueToast,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "선택한 출발지는 "+String.format("%",data.getStringExtra("출발지"))+", 선택한 도착지는 "+String.format("%",data.getStringExtra("도착지"))+"입니다.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
