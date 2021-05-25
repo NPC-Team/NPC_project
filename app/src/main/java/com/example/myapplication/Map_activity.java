@@ -289,7 +289,6 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                 String startvalueToast = data.getStringExtra("출발좌표");
                 String comevalueToast = data.getStringExtra("도착좌표");
                 Toast.makeText(this,"선택한 출발지는 "+startToast+": "+startvalueToast+"\n선택한 도착지는 "+comeToast+": "+comevalueToast,Toast.LENGTH_SHORT).show();
-//                Toast.makeText(this, "선택한 출발지는 "+String.format("%",data.getStringExtra("출발지"))+", 선택한 도착지는 "+String.format("%",data.getStringExtra("도착지"))+"입니다.", Toast.LENGTH_SHORT).show();
             }
         }
     }

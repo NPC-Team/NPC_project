@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 public class canigoPopupActivity extends Activity {
 
-//    TextView txtText;
-//    Spinner spinner;
     String starttointent;
     String cometointent;
     String startvalue;
