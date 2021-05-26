@@ -9,16 +9,24 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.IdRes;
 
 public class canigoPopupActivity extends Activity {
 
-    String profile;
+    String profile = "routed-foot";//초기화
     String starttointent;
     String cometointent;
     String startvalue;
     String comevalue;
+    RadioButton radiowalk, radiobike, radiocar;
+    RadioGroup profileradioGroup;
+
 
 
     @Override
@@ -36,6 +44,19 @@ public class canigoPopupActivity extends Activity {
 //        Intent intent = getIntent();
 //        String data = intent.getStringExtra("data");
 //        txtText.setText(data);
+
+        //라디오 버튼 설정
+         radiowalk = (RadioButton) findViewById(R.id.radiowalk);
+         radiobike = (RadioButton) findViewById(R.id.radiobike);
+         radiocar = (RadioButton) findViewById(R.id.radiocar);
+//         radiowalk.setOnClickListener(radioButtonClickListener);
+//         radiobike.setOnClickListener(radioButtonClickListener);
+//         radiocar.setOnClickListener(radioButtonClickListener);
+
+        // 라디오 그룹 설정
+         profileradioGroup = (RadioGroup) findViewById(R.id.profileradiogroup);
+         profileradioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+
 
         startto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -66,7 +87,7 @@ public class canigoPopupActivity extends Activity {
     public void mOnClose(View v){
         //데이터 전달하기
         Intent intent = new Intent();
-//        intent.putExtra("형식", profile);
+        intent.putExtra("형식", profile);
         intent.putExtra("출발지", starttointent);
         intent.putExtra("도착지", cometointent);
         intent.putExtra("출발좌표", startvalue);
@@ -76,6 +97,27 @@ public class canigoPopupActivity extends Activity {
         //액티비티(팝업) 닫기
         finish();
     }
+
+    //라디오 버튼 클릭 리스너
+//    RadioButton.OnClickListener radioButtonClickListener = new RadioButton.OnClickListener(){
+//        @Override public void onClick(View view) {
+//        }
+//    };
+
+    //라디오 그룹 클릭 리스너
+    RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+            if(i == R.id.radiowalk){
+                profile = "routed-foot";
+                Toast.makeText(canigoPopupActivity.this, "도보 기준으로 계산합니다.", Toast.LENGTH_SHORT).show(); }
+            else if(i == R.id.radiobike){
+                profile = "routed-bike";
+                Toast.makeText(canigoPopupActivity.this, "자전거 기준으로 계산합니다.", Toast.LENGTH_SHORT).show(); }
+            else if(i == R.id.radiocar){
+                profile = "routed-car";
+                Toast.makeText(canigoPopupActivity.this, "자동차 기준으로 계산합니다.", Toast.LENGTH_SHORT).show(); }
+        }
+    };
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
