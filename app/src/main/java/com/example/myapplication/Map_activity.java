@@ -41,13 +41,18 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.compass.IOrientationProvider;
+import org.osmdroid.views.overlay.infowindow.InfoWindow;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
 public class Map_activity extends AppCompatActivity implements LocationListener, MapEventsReceiver {
+
+    private static Context mContext;
+
     private BackPressCloseHandler backPressCloseHandler;
+
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
 
@@ -84,6 +89,8 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         //inflate and create the map
         setContentView(R.layout.activity_map);
 
+        mContext = this;
+
         //뒤로가기 버튼 핸들러
         backPressCloseHandler = new BackPressCloseHandler(this);
 
@@ -105,6 +112,22 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
 
         MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(this, this);
         map.getOverlays().add(0, mapEventsOverlay);
+
+        Marker building = new Marker(map);
+        GeoPoint point = new GeoPoint(33.45736, 126.56017);
+        building.setPosition(point);
+        building.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        map.getOverlays().add(building);
+
+        building.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker, MapView mapView) {
+                InfoWindow infoWindow = new MyInfoWindow(R.layout.infowindow, map);
+                marker.setInfoWindow(infoWindow);
+                marker.showInfoWindow();
+                return true;
+            }
+        });
 
         requestPermissionsIfNecessary(new String[]{
                 // if you need to show the current location, uncomment the line below
@@ -133,8 +156,10 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
             //java.lang.IllegalArgumentException: provider doesn't exist: network
             ex.printStackTrace();
         }
+    }
 
-
+    public static Context getContext() {
+        return mContext;
     }
 
     @Override
