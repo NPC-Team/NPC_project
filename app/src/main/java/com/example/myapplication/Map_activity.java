@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -222,6 +223,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public boolean singleTapConfirmedHelper(GeoPoint p) {
 
@@ -248,11 +250,13 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         return false;
     }
 
+    //뒤로가기 핸들러 클래스
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void onBackPressed(){
         backPressCloseHandler.onBackPressed();
     }
 
+    //메뉴 만드는 클래스
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -260,6 +264,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         return true;
     }
 
+    //메뉴 띄우는 클래스
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
@@ -278,6 +283,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         }
     }
 
+    //데이터 받는 클래스
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

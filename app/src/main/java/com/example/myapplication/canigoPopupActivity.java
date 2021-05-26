@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 public class canigoPopupActivity extends Activity {
 
+    String profile;
     String starttointent;
     String cometointent;
     String startvalue;
@@ -65,6 +66,7 @@ public class canigoPopupActivity extends Activity {
     public void mOnClose(View v){
         //데이터 전달하기
         Intent intent = new Intent();
+//        intent.putExtra("형식", profile);
         intent.putExtra("출발지", starttointent);
         intent.putExtra("도착지", cometointent);
         intent.putExtra("출발좌표", startvalue);
