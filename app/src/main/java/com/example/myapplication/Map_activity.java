@@ -264,7 +264,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         return true;
     }
 
-    //메뉴 띄우는 클래스
+    //메뉴 셀렉터 이벤트 처리
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){

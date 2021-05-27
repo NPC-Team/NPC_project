@@ -3,16 +3,13 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.IdRes;
@@ -57,7 +54,7 @@ public class canigoPopupActivity extends Activity {
          profileradioGroup = (RadioGroup) findViewById(R.id.profileradiogroup);
          profileradioGroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
 
-
+         //어댑터 뷰 연결
         startto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -93,7 +90,6 @@ public class canigoPopupActivity extends Activity {
         intent.putExtra("출발좌표", startvalue);
         intent.putExtra("도착좌표", comevalue);
         setResult(RESULT_OK, intent);
-
         //액티비티(팝업) 닫기
         finish();
     }
