@@ -31,6 +31,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.events.MapEventsReceiver;
@@ -68,7 +70,8 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
     private LocationManager lm;
     private Location currentLocation = null;
 
-    int custom_overlays = 0;
+    EnableAddMarker addMarker = new EnableAddMarker();
+    ButtonListener buttonListener = new ButtonListener();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +93,12 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         setContentView(R.layout.activity_map);
 
         mContext = this;
+
+        FloatingActionButton mylocation = (FloatingActionButton) findViewById(R.id.mylocation);
+        FloatingActionButton addmarker = (FloatingActionButton) findViewById(R.id.addmarker);
+
+        mylocation.setOnClickListener(buttonListener);
+        addmarker.setOnClickListener(buttonListener);
 
         //뒤로가기 버튼 핸들러
         backPressCloseHandler = new BackPressCloseHandler(this);
@@ -252,21 +261,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
     @Override
     public boolean singleTapConfirmedHelper(GeoPoint p) {
 
-        Marker marker = new Marker(map);
-        marker.setPosition(p);
-        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-
-        if(custom_overlays > 0){
-            map.getOverlays().remove(map.getOverlays().toArray().length - 1);
-            custom_overlays--;
-        }
-
-        map.getOverlays().add(marker);
-        custom_overlays++;
-
-        map.getController().animateTo(p);
-
-        Toast.makeText(this, "클릭 위치는 ("+String.format("%.4f" ,p.getLatitude())+","+String.format("%.4f", p.getLongitude())+")", Toast.LENGTH_SHORT).show();
+        addMarker.addMarker(map, p);
         return true;
     }
 
