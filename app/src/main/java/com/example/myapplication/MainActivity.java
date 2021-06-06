@@ -28,6 +28,38 @@ public class MainActivity extends AppCompatActivity {
         finish();
 
         readCsvDate();
+        readInfoData();
+    }
+
+    private List<InfoSample> infoSamples = new ArrayList<>();
+
+    private void readInfoData() {
+        InputStream is = getResources().openRawResource(R.raw.BuildingInfo);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: "+ line);
+                String [] tokens = line.split(",");
+                InfoSample sample = new InfoSample();
+                sample.setNumber(Integer.parseInt(tokens[0]));
+                sample.setName((tokens[1]));
+                sample.setInfo((tokens[2]));
+                infoSamples.add(sample);
+
+                Log.d("MyActivity", "Just created: " + sample);
+
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading NpcCsv file on line" + line, e);
+            e.printStackTrace();
+        }
+
+
+
     }
 
     private List<CsvSampele> CsvSample= new ArrayList<>();
@@ -58,4 +90,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 }
