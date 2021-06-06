@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private List<InfoSample> infoSamples = new ArrayList<>();
 
     private void readInfoData() {
-        InputStream is = getResources().openRawResource(R.raw.BuildingInfo);
+        InputStream is = getResources().openRawResource(R.raw.buildinginfo);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
         );

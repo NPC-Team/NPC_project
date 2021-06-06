@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="80000000"
+            android:background="@color/jejuSKyBlue80"
             android:padding="24dp"
             android:text="거리"
             android:textSize="20sp" />
@@ -28,7 +28,7 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="80000000"
+            android:background="@color/jejuGreen80"
             android:padding="24dp"
             android:text="m"
             android:textSize="20sp" />
@@ -46,7 +46,7 @@
         android:id="@+id/routeGuideTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="80000000"
+        android:background="@color/jejuSKyBlue80"
         android:layout_weight="1"
         android:text="예상 소요 시간"
         android:padding="24dp"
@@ -58,7 +58,7 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="80000000"
+            android:background="@color/jejuGreen80"
             android:padding="24dp"
             android:text="분"
             android:textSize="20sp" />

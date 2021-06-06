@@ -19,7 +19,7 @@ public class RouteActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide);
+        setContentView(R.layout.activity_route);
 
         routeGuide = (TextView) findViewById(R.id.routeGuide);
         routeGuideResult = (TextView) findViewById(R.id.routeGuideResult);
