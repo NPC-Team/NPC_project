@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private List<InfoSample> infoSamples = new ArrayList<>();
 
     private void readInfoData() {
-        InputStream is = getResources().openRawResource(R.raw.BuildingInfo);
+        InputStream is = getResources().openRawResource(R.raw.buildinginfo);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
         );
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    //건물이름 위도 경도 불러오기
     private List<CsvSampele> CsvSample= new ArrayList<>();
     private void readCsvDate() {
         InputStream is = getResources() . openRawResource(R.raw.npccsv);
