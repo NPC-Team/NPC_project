@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<CsvSampele> CsvSample= new ArrayList<>();
     private void readCsvDate() {
-        InputStream is = getResources() . openRawResource(R.raw.NpcCsv);
+        InputStream is = getResources() . openRawResource(R.raw.npccsv);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
         );
@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 CsvSampele sample = new CsvSampele();
                 sample.setNumber(Integer.parseInt(tokens[0]));
                 sample.setName((tokens[1]));
-                sample.setCoordinates(Double.parseDouble(tokens[2]));
+                sample.setLatitude(Double.parseDouble(tokens[2]));
+                sample.setLongitude(Double.parseDouble(tokens[3]));
                 CsvSample.add(sample);
 
                 Log.d("MyActivity", "Just created: " + sample);

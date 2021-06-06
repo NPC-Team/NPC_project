@@ -3,7 +3,8 @@ package com.example.myapplication;
 public class CsvSampele {
     private int Number;
     private String Name;
-    private double Coordinates;
+    private double Latitude;
+    private double Longitude;
 
     public int getNumber() {
         return Number;
@@ -21,16 +22,24 @@ public class CsvSampele {
         Name = name;
     }
 
-    public double getCoordinates() {
-        return Coordinates;
+    public double getLatitude() {
+        return Latitude;
     }
 
-    public void setCoordinates(double coordinates) {
-        Coordinates = coordinates;
+    public void setLatitude(double latitude) {
+        Latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        Longitude = longitude;
     }
 
     @Override
     public String toString() {
-        return "CsvSampele{" + "Number='" + Number + '\'' + ", Name=" + Name + ", Coordinates=" + Coordinates + '}';
+        return "NpcCsv {" + "Number='" + Number + '\'' + ", Name=" + Name + ", Latitude=" + Latitude + ", Longitude=" + Longitude + '}';
     }
 }
