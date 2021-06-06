@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    //건물이름 위도 경도 불러오기
     private List<CsvSampele> CsvSample= new ArrayList<>();
     private void readCsvDate() {
         InputStream is = getResources() . openRawResource(R.raw.npccsv);
