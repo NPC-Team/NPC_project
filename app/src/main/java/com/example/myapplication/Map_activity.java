@@ -273,8 +273,10 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                 startActivityForResult(intent, 1);
                 return true;
             case R.id.action_whattaeat:
-                Toast.makeText(this, "뭐먹젠 미구현", Toast.LENGTH_SHORT).show();
-                return true;
+//                Toast.makeText(this, "뭐먹젠 미구현", Toast.LENGTH_SHORT).show();
+//                return true;
+                Intent intent1 = new Intent(this, whereisfoodActivity.class);
+                startActivity(intent1);
 //            case R.id.action_toilet:
 //                Toast.makeText(this, "화장실 어디인 미구현", Toast.LENGTH_SHORT).show();
 //                return true;
