@@ -88,7 +88,29 @@ public class whereisfoodActivity extends Activity {
         btnFood2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 첫번째 버튼을 눌렀을때
+
+                Context ctx = getApplicationContext();
+                Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
+
+                setContentView(R.layout.activity_map);
+
+                map = (MapView) findViewById(R.id.map);
+                map.setTileSource(TileSourceFactory.MAPNIK);
+
+                IMapController mapController = map.getController();
+                mapController.setZoom(19.5);
+
+                GeoPoint food2Point = new GeoPoint(33.46034660680238, 126.56154512014942);
+
+                Marker marker = new Marker(map);
+                marker.setPosition(food2Point);
+                marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+
+                map.getOverlays().add(marker);
+//                custom_overlays++;
+
+                map.getController().animateTo(food2Point);
+
             }
         });
         Button btnFood3 = (Button) findViewById(R.id.btnFood3);
