@@ -33,6 +33,7 @@ public class CsvUtils {
             }
 
         } catch (FileNotFoundException e) {
+            Log.d("csv", "readToList: error");
 
         } catch (IOException e) {
 

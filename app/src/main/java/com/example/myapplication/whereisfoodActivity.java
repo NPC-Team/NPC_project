@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.ResourceBundle;
 
 
 public class whereisfoodActivity extends Activity {
@@ -34,33 +35,35 @@ public class whereisfoodActivity extends Activity {
 
     private MapView map = null;
 
-//    private List<restuarnatSample> restuarnatSamples= new ArrayList<>();
-//    private void readRestuarantData() {
-//        InputStream is = getResources().openRawResource(R.raw.restaurantlocation);
-//        BufferedReader reader = new BufferedReader(
-//                new InputStreamReader(is, Charset.forName("UTF-8"))
-//        );
-//        String line = "";
-//        try {
-//            reader.readLine();
-//            while ((line = reader.readLine()) != null) {
-//                Log.d("MyActivity", "Line: "+ line);
-//                String [] tokens = line.split(",");
-//                restuarnatSample sample = new restuarnatSample();
-//                sample.setNumber(Integer.parseInt(tokens[0]));
-//                sample.setName((tokens[1]));
-//                sample.setLatitude(Double.parseDouble(tokens[2]));
-//                sample.setLongitude(Double.parseDouble(tokens[3]));
-//                restuarnatSamples.add(sample);
-//
-//                Log.d("MyActivity", "Just created: " + sample);
-//
-//            }
-//        } catch (IOException e) {
-//            Log.wtf("MyActivity", "Error reading NpcCsv file on line" + line, e);
-//            e.printStackTrace();
-//        }
-//    }
+    private List<restuarnatSample> restuarnatSamples = new ArrayList<>();
+
+    private void readRestuarantData() {
+        InputStream is = getResources().openRawResource(R.raw.restaurantlocation);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line = "";
+        try {
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: "+ line);
+                String [] tokens = line.split(",");
+                restuarnatSample sample = new restuarnatSample();
+                sample.setNumber(Integer.parseInt(tokens[0]));
+                sample.setName((tokens[1]));
+                sample.setLatitude(Double.parseDouble(tokens[2]));
+                sample.setLongitude(Double.parseDouble(tokens[3]));
+                restuarnatSamples.add(sample);
+
+                Log.d("MyActivity", "Just created: " + sample);
+
+//                여기서 바로 오버레이 찍는 함수한테 토큰으로 떼놓은 값 넘기면서 호출함녀 됨
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading NpcCsv file on line" + line, e);
+            e.printStackTrace();
+        }
+    }
 
 //
 
@@ -74,8 +77,10 @@ public class whereisfoodActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_food);
 
-        String path = "C:\\Users\\tmdej\\Documents\\GitHub\\NPC_project\\app\\src\\main\\res\\raw\\restaurantlocation.csv";
-        List<List<String>> list = CsvUtils.readToList(path);
+        readRestuarantData();
+
+
+
 
 
 
@@ -85,11 +90,10 @@ public class whereisfoodActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-
-                int i=3;
-//
-                // list.get(i);
-                List<String> line = list.get(i);
+//                int i=3;
+////
+//                list.get(i);
+//                List<String> line = list.get(i);
 
 
 
@@ -103,6 +107,8 @@ public class whereisfoodActivity extends Activity {
 
                 IMapController mapController = map.getController();
                 mapController.setZoom(19.5);
+
+
 
 
 //                GeoPoint food1Point = new GeoPoint(Double.parseDouble(line.get(2)), Double.parseDouble(line.get(3)));
