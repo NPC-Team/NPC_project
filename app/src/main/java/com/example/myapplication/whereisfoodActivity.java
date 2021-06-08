@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -16,6 +18,14 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class whereisfoodActivity extends Activity {
@@ -24,14 +34,49 @@ public class whereisfoodActivity extends Activity {
 
     private MapView map = null;
 
+//    private List<restuarnatSample> restuarnatSamples= new ArrayList<>();
+//    private void readRestuarantData() {
+//        InputStream is = getResources().openRawResource(R.raw.restaurantlocation);
+//        BufferedReader reader = new BufferedReader(
+//                new InputStreamReader(is, Charset.forName("UTF-8"))
+//        );
+//        String line = "";
+//        try {
+//            reader.readLine();
+//            while ((line = reader.readLine()) != null) {
+//                Log.d("MyActivity", "Line: "+ line);
+//                String [] tokens = line.split(",");
+//                restuarnatSample sample = new restuarnatSample();
+//                sample.setNumber(Integer.parseInt(tokens[0]));
+//                sample.setName((tokens[1]));
+//                sample.setLatitude(Double.parseDouble(tokens[2]));
+//                sample.setLongitude(Double.parseDouble(tokens[3]));
+//                restuarnatSamples.add(sample);
+//
+//                Log.d("MyActivity", "Just created: " + sample);
+//
+//            }
+//        } catch (IOException e) {
+//            Log.wtf("MyActivity", "Error reading NpcCsv file on line" + line, e);
+//            e.printStackTrace();
+//        }
+//    }
 
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+//        readRestuarantData();
         //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_food);
+
+        String path = "C:\\Users\\tmdej\\Documents\\GitHub\\NPC_project\\app\\src\\main\\res\\raw\\restaurantlocation.csv";
+        List<List<String>> list = CsvUtils.readToList(path);
+
 
 
 
@@ -39,12 +84,14 @@ public class whereisfoodActivity extends Activity {
         btnFood1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 첫번째 버튼을 눌렀을때
-                //
-//                IMapController mapController = map.getController();
-//                mapController.setZoom(25.5);
-//                GeoPoint food1Point = new GeoPoint(33.460254111206766, 126.5609782935218);
-//                mapController.setCenter(food1Point);
+
+
+                int i=3;
+//
+                // list.get(i);
+                List<String> line = list.get(i);
+
+
 
                 Context ctx = getApplicationContext();
                 Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
@@ -54,30 +101,19 @@ public class whereisfoodActivity extends Activity {
                 map = (MapView) findViewById(R.id.map);
                 map.setTileSource(TileSourceFactory.MAPNIK);
 
-//                GeoPoint food1Point = new GeoPoint(33.46025, 126.56097);
-//                Marker food1Marker = new Marker(map);
-//                food1Marker.setPosition(food1Point);
-//                food1Marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-//                map.getOverlays().add(food1Marker);
-
-//                int custom_overlays = 0;
-
                 IMapController mapController = map.getController();
                 mapController.setZoom(19.5);
 
-                GeoPoint food1Point = new GeoPoint(33.46025, 126.56097);
+
+//                GeoPoint food1Point = new GeoPoint(Double.parseDouble(line.get(2)), Double.parseDouble(line.get(3)));
+                GeoPoint food1Point = new GeoPoint(33.46025,126.56097);
+
 
                 Marker marker = new Marker(map);
                 marker.setPosition(food1Point);
                 marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
 
-//                if(custom_overlays > 0){
-//                    map.getOverlays().remove(map.getOverlays().toArray().length - 1);
-//                    custom_overlays--;
-//                }
-
                 map.getOverlays().add(marker);
-//                custom_overlays++;
 
                 map.getController().animateTo(food1Point);
 
@@ -100,7 +136,7 @@ public class whereisfoodActivity extends Activity {
                 IMapController mapController = map.getController();
                 mapController.setZoom(19.5);
 
-                GeoPoint food2Point = new GeoPoint(33.46034660680238, 126.56154512014942);
+                GeoPoint food2Point = new GeoPoint(33.46034, 126.56154);
 
                 Marker marker = new Marker(map);
                 marker.setPosition(food2Point);
@@ -156,6 +192,8 @@ public class whereisfoodActivity extends Activity {
             }
         });
     }
+
+
 
 
 }
