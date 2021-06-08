@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RouteActivity extends AppCompatActivity {
 
-    TextView routeGuide, routeGuideResult, routeGuideTime, routeGuideTimeResult;
-    Button GuideButton;
+    TextView routeGuide, routeGuideResult, routeGuideTime, routeGuideTimeResult, startPoint, endPoint;
+    Button GuideButton, changeStartEnd;
     Integer distanceResult, timeResult;
 
     @Override
@@ -28,6 +28,11 @@ public class RouteActivity extends AppCompatActivity {
 
         GuideButton = (Button) findViewById(R.id.GuideButton);
 
+        changeStartEnd = (Button) findViewById(R.id.changeStartEnd);
+
+        startPoint = (TextView) findViewById(R.id.startPoint);
+        endPoint = (TextView) findViewById(R.id.endPoint);
+
 //        GuideButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -37,6 +42,8 @@ public class RouteActivity extends AppCompatActivity {
 
         routeGuideResult.setText(distanceResult.toString() + "m");
         routeGuideTimeResult.setText(timeResult.toString() + "분");
+
+
 
     }
 
