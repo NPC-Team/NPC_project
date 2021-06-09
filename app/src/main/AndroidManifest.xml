@@ -7,7 +7,8 @@ package="com.example.myapplication">
     android:minSdkVersion="8" />
 
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
@@ -20,7 +21,8 @@ package="com.example.myapplication">
     android:label="@string/app_name"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
-    android:theme="@style/Theme.MyApplication">
+    android:theme="@style/Theme.MyApplication"
+    android:usesCleartextTraffic="true">
     <activity android:name=".MainActivity"
         android:theme="@style/SplashTheme"
         android:screenOrientation="portrait">
@@ -31,9 +33,6 @@ package="com.example.myapplication">
         </intent-filter>
     </activity>
     <activity android:name="com.example.myapplication.Map_activity"></activity>
-    <activity android:name=".GuideActivity" android:label="GuideActivity"/>
-    <activity android:name=".RouteActivity" android:label="RouteActivity"/>
-    <activity android:name=".whereisfoodActivity" android:label="whereisfoodActivity"/>
     <activity android:name=".canigoPopupActivity" android:theme="@android:style/Theme.Dialog" />
 
 </application>

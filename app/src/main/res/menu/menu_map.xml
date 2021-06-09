@@ -10,8 +10,8 @@
         android:id="@+id/action_whattaeat"
         android:title="뭐먹젠?"
         app:showAsAction="never" />
-<!--    <item-->
-<!--        android:id="@+id/action_toilet"-->
-<!--        android:title="화장실 어디인?"-->
-<!--        app:showAsAction="never" />-->
+    <item
+        android:id="@+id/action_toilet"
+        android:title="화장실 어디인?"
+        app:showAsAction="never" />
 </menu>
