@@ -29,6 +29,7 @@
         android:id="@+id/guideRouteBtn"
         android:layout_width="match_parent"
         android:layout_height="73dp"
+        android:background="@color/jejuGreen"
         android:text="경로 안내" />
 
 </LinearLayout>

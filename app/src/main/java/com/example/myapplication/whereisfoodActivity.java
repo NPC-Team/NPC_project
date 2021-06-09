@@ -77,7 +77,7 @@ public class whereisfoodActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_food);
 
-        readRestuarantData();
+//        readRestuarantData();
 
         Button btnFood1 = (Button) findViewById(R.id.btnFood1);
         btnFood1.setOnClickListener(new View.OnClickListener() {

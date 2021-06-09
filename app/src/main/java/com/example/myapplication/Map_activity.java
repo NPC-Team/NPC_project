@@ -177,24 +177,35 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                 bubble_description.setText("컴퓨터공학전공/메카트로닉스공학전공/에너지공학전공");
 
 
+
                 Button bubble_moreinfo = (Button) findViewById(R.id.bubble_moreinfo);
+
+
+
+
                 bubble_moreinfo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        setContentView(R.layout.detailinfowindow);
-                        TextView buildingNameText = (TextView) findViewById(R.id.buildingNameText);
-                        TextView buildingInfo = (TextView) findViewById(R.id.buildingInfo);
-                        ImageView buildingImage = (ImageView) findViewById(R.id.buildingImage);
-                        Button guideRouteBtn = (Button) findViewById(R.id.guideRouteBtn);
-                        buildingNameText.setText("공대 4호관");
-                        buildingInfo.setText("공대 4호관은 건축학전공, 메카트로닉스전공, 에너지공학전공, 컴퓨터공학전공이 있습니다.");
-                        buildingImage.setImageResource(R.drawable.engineering4);
+                        Intent intent1 = new Intent(getApplicationContext(), DetailInfoWindow.class);
+                        startActivity(intent1);
+//                        setContentView(R.layout.detailinfowindow);
+//                        TextView buildingNameText = (TextView) findViewById(R.id.buildingNameText);
+//                        TextView buildingInfo = (TextView) findViewById(R.id.buildingInfo);
+//                        ImageView buildingImage = (ImageView) findViewById(R.id.buildingImage);
+//                        Button guideRouteBtn = (Button) findViewById(R.id.guideRouteBtn);
+//
+//                        buildingNameText.setText("공대 4호관");
+//                        buildingInfo.setText("공대 4호관은 건축학전공, 메카트로닉스전공, 에너지공학전공, 컴퓨터공학전공이 있습니다.");
+//                        guideRouteBtn.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//
+//                            }
+//                        });
+//                        buildingImage.setImageResource(R.drawable.engineering4);
+
                     }
-
-
-
-
 
 
                 });
