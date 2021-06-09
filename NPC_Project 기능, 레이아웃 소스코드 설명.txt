@@ -1,0 +1,28 @@
+-------------------------------------기 능 부 분------------------------------------------------------
+***java--자바 언어로 작성된 파일들이 들어있는 폴더입니다.
+           (프로그래밍 언어를 직접 작성한 파일이 들어있는 폴더입니다.)
+   java----com.example.myapplication--BackPressCloseHandler-->클래스-BackPressCloseHandler
+							       함수----onBackPressed()--뒤로가기 버튼을 눌렀을때 showGuide()함수를 실행
+							                 showGuide()---뒤로가기 버튼을 한번 더 누르면 종료한다는 문구를 출력
+						     -->클래스-canigoPopupActivity
+							       --쉬는 시간안에 해당건물까지 갈 수 있는지 물어보는 팝업창을 띄웁니다
+						     -->클래스-MainActivity
+							       --Main화면을 보여주고 일정시간 후 Map화면으로 넘어가는 단계를 나타냅니다
+						     -->클래스-Map_activity
+							       --osmdroid의 지도의 전체적인 소스코드입니다.
+***Gradle Scripts--앱을 만들어 배포하는 도구입니다.
+
+***res----앱의 화면을 구성하는 리소스 폴더입니다.
+   res-----drawable--ic_launcher_background.xml-앱 로고의 배경사진입니다.
+		 ic_launcher_foregroound.xml-앱 로고 캐릭터 그림입니다.
+		 loading.png--앱 실행시 로딩중 그림입니다.
+	menu-----menu_map--메인화면에서 맵 화면을 눌렀을때 나오는 화면입니다.
+	mipmap--ic_launcher--앱 로고 배경사진과 캐릭터 사진을 합친 그림입니다.
+		ic_launchr_round--앱 로고 그림 원형 버전입니다.
+	values----strings.xml--앱 이름
+		colors.xml--앱 화면 상단 타이틀 바 화면 색
+		campus.xml--제주대학교 건물들의 이름과 좌표 값
+		themes---themes.xml->화면 기본 색상(밝은색), themes.xml(night)->화면 기본 색상(어두운색)
+	layout----activity_canigo.xml--쉬는 시간안에 갈 수 있는 지 물어보는 레이아웃 창
+		activity_main.xml--메인화면으로 넘어가는 로딩 중 레이아웃 창
+		activity_map.xml--osmdroid에서 첨부한 지도를 메인화면에 띄우는 레이아웃 창
