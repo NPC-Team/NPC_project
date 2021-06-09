@@ -15,6 +15,7 @@ public class DetailInfoWindow extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.detailinfowindow);
 
         buildingInfo = (TextView) findViewById(R.id.buildingInfo);
 

@@ -79,12 +79,6 @@ public class whereisfoodActivity extends Activity {
 
         readRestuarantData();
 
-
-
-
-
-
-
         Button btnFood1 = (Button) findViewById(R.id.btnFood1);
         btnFood1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +88,6 @@ public class whereisfoodActivity extends Activity {
 ////
 //                list.get(i);
 //                List<String> line = list.get(i);
-
-
 
                 Context ctx = getApplicationContext();
                 Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

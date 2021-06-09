@@ -186,11 +186,16 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                         TextView buildingNameText = (TextView) findViewById(R.id.buildingNameText);
                         TextView buildingInfo = (TextView) findViewById(R.id.buildingInfo);
                         ImageView buildingImage = (ImageView) findViewById(R.id.buildingImage);
+                        Button guideRouteBtn = (Button) findViewById(R.id.guideRouteBtn);
                         buildingNameText.setText("공대 4호관");
                         buildingInfo.setText("공대 4호관은 건축학전공, 메카트로닉스전공, 에너지공학전공, 컴퓨터공학전공이 있습니다.");
                         buildingImage.setImageResource(R.drawable.engineering4);
-
                     }
+
+
+
+
+
 
                 });
 
@@ -666,7 +671,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         return true;
     }
 
-    //메뉴 띄우는 클래스
+    //메뉴 셀렉터 이벤트 처리
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
@@ -675,11 +680,13 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                 startActivityForResult(intent, 1);
                 return true;
             case R.id.action_whattaeat:
-                Toast.makeText(this, "뭐먹젠 미구현", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.action_toilet:
-                Toast.makeText(this, "화장실 어디인 미구현", Toast.LENGTH_SHORT).show();
-                return true;
+//                Toast.makeText(this, "뭐먹젠 미구현", Toast.LENGTH_SHORT).show();
+//                return true;
+                Intent intent1 = new Intent(this, whereisfoodActivity.class);
+                startActivity(intent1);
+//            case R.id.action_toilet:
+//                Toast.makeText(this, "화장실 어디인 미구현", Toast.LENGTH_SHORT).show();
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
