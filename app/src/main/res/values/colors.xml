@@ -10,4 +10,7 @@
     <color name="jejuBlue">#FF0C50A0</color>
     <color name="jejuGreen">#FF63B630</color>
     <color name="jejuSKyBlue">#FF00A6EC</color>
+    <color name="jejuBlue80">#800C50A0</color>
+    <color name="jejuGreen80">#8063B630</color>
+    <color name="jejuSKyBlue80">#8000A6EC</color>
 </resources>

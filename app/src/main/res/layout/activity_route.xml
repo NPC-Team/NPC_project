@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,43 +10,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_above="@id/timeResult">
 
         <TextView
             android:id="@+id/routeGuide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="80000000"
+            android:background="@color/jejuSKyBlue80"
             android:padding="24dp"
             android:text="거리"
             android:textSize="20sp" />
 
+        <!-- 여기에 몇m인지 입력 -->
         <TextView
-
             android:id="@+id/routeGuideResult"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="80000000"
+            android:background="@color/jejuGreen80"
             android:padding="24dp"
-            android:text="500m"
+            android:text="m"
             android:textSize="20sp" />
 
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/timeResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_above="@id/GuideButton">
 
 
     <TextView
         android:id="@+id/routeGuideTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="80000000"
+        android:background="@color/jejuSKyBlue80"
         android:layout_weight="1"
         android:text="예상 소요 시간"
         android:padding="24dp"
@@ -54,23 +57,51 @@
 
         <TextView
 
-            android:id="@+id/routeGuideTime2"
+            android:id="@+id/routeGuideTimeResult"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="80000000"
+            android:background="@color/jejuGreen80"
             android:padding="24dp"
-            android:text="몇분"
+            android:text="분"
             android:textSize="20sp" />
 
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/GuideButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/jejuGreen"
         android:gravity="center"
-        android:text="안내 시작" />
-</LinearLayout>
+        android:text="안내 시작"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/startPoint"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="출발지"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/endPoint"
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startPoint"
+        android:text="목적지"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/changeStartEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⇅"
+        android:layout_toRightOf="@id/startPoint"/>
+
+
+</RelativeLayout>

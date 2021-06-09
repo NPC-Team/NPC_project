@@ -12,9 +12,13 @@ import org.osmdroid.views.overlay.Polyline;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// 지도에 길을 그려주는 클래스
+
 public class PathView extends Activity {
 
     private MapView map = null;
+
 
 
         List<GeoPoint> geoPoints = new ArrayList<>();
@@ -23,6 +27,22 @@ public class PathView extends Activity {
 //        GeoPoint point2 = new GeoPoint(33.45743,126.56122);
 //        GeoPoint point3 = new GeoPoint(33.45741,126.56166);
 //
+=======
+    List<GeoPoint> geoPoints = new ArrayList<>();
+
+    PathView(GeoPoint geoPoint){
+        this.geoPoints = geoPoints;
+        setContentView(R.layout.activity_map);
+    }
+
+
+        //add your points here
+
+//    GeoPoint point1 = new GeoPoint(33.45915, 126.56118);
+//        GeoPoint point2 = new GeoPoint(33.45743,126.56122);
+//        GeoPoint point3 = new GeoPoint(33.45741,126.56166);
+
+
 //        geoPoints.add(point1);
 //        geoPoints.add(point2);
 //        geoPoints.add(point3);
