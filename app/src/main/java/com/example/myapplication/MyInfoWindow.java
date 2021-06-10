@@ -64,6 +64,7 @@ public class MyInfoWindow extends MarkerInfoWindow {
             public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
                     // 성공적으로 서버에서 데이터 불러옴.
+                    Log.d(TAG, "onResponse: " + response.body());
                     Toast.makeText(Map_activity.getContext(), "onResponse: 성공" + response.body(), Toast.LENGTH_LONG).show();
                     Log.d(TAG, "onResponse: 성공" + response.body());
                 } else {

@@ -32,7 +32,9 @@ public class DetailInfoWindow extends Activity {
 //        Button guideRouteBtn = (Button) findViewById(R.id.guideRouteBtn);
 
         buildingNameText.setText("공대 4호관");
-        buildingInfo.setText("공대 4호관은 건축학전공, 메카트로닉스전공, 에너지공학전공, 컴퓨터공학전공이 있습니다.");
+        buildingInfo.setText("공대 4호관은 건축학전공, 메카트로닉스전공, 에너지공학전공, 컴퓨터공학전공이 있습니다. 기계공학전공,건축공학전공 사무실은 1층에 있고, 매카트로닉스공학전공사무실은 2층에 있습니다." +
+                "에너지공학전공 사무실은 3층에 있고, 컴퓨터공학전공 사무실은 4층에 있습니다.  ");
+        buildingInfo.setTextSize(20);
 //        guideRouteBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
