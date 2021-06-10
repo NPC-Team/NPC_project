@@ -91,37 +91,37 @@ public class MyLocation {
         @Override
         public void onLocationResult(@NonNull @NotNull LocationResult locationResult) {
 
-            for (Location location : locationResult.getLocations()) {
-                // Update UI with location data
-                // ...
-                gpsbearing = location.getBearing();
-                gpsspeed = location.getSpeed();
-                lat = (float) location.getLatitude();
-                lon = (float) location.getLongitude();
-                alt = (float) location.getAltitude(); //meters
+                for (Location location : locationResult.getLocations()) {
+                    // Update UI with location data
+                    // ...
+                    gpsbearing = location.getBearing();
+                    gpsspeed = location.getSpeed();
+                    lat = (float) location.getLatitude();
+                    lon = (float) location.getLongitude();
+                    alt = (float) location.getAltitude(); //meters
 
-                //use gps bearing instead of the compass
+                    //use gps bearing instead of the compass
 
-                float t = (360 - gpsbearing);
-                if (t < 0) {
-                    t += 360;
-                }
-                if (t > 360) {
-                    t -= 360;
-                }
-                //help smooth everything out
-                t = (int) t;
-                t = t / 5;
-                t = (int) t;
-                t = t * 5;
+                    float t = (360 - gpsbearing);
+                    if (t < 0) {
+                        t += 360;
+                    }
+                    if (t > 360) {
+                        t -= 360;
+                    }
+                    //help smooth everything out
+                    t = (int) t;
+                    t = t / 5;
+                    t = (int) t;
+                    t = t * 5;
 
-                if (gpsspeed >= 0.01) {
-                    map.setMapOrientation(t);
-                    map.getController().setCenter(mLocationOverlay.getMyLocation());
-                    //otherwise let the compass take over
+                    if (gpsspeed >= 0.01) {
+                        map.setMapOrientation(t);
+                        map.getController().setCenter(mLocationOverlay.getMyLocation());
+                        //otherwise let the compass take over
+                    }
+                    Log.d("", "onLocationResult: " + headingAble);
                 }
-                Log.d("", "onLocationResult: " + headingAble);
-            }
         }
     };
 }

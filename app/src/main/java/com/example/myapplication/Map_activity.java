@@ -61,6 +61,7 @@ public class Map_activity extends AppCompatActivity {
 
     private static Context mContext;
 
+
     private BackPressCloseHandler backPressCloseHandler;
 
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
@@ -69,6 +70,7 @@ public class Map_activity extends AppCompatActivity {
 
     private Object DrawRoute;
     private Button CalRouteBtn;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,7 @@ public class Map_activity extends AppCompatActivity {
         setContentView(R.layout.activity_map);
 
         mContext = this;
+
 
         FloatingActionButton mylocation = (FloatingActionButton) findViewById(R.id.mylocation);
         FloatingActionButton addmarker = (FloatingActionButton) findViewById(R.id.addmarker);
@@ -525,6 +528,27 @@ public class Map_activity extends AppCompatActivity {
 
 
 
+
+        FloatingActionButton mylocation = (FloatingActionButton) findViewById(R.id.mylocation);
+        FloatingActionButton addmarker = (FloatingActionButton) findViewById(R.id.addmarker);
+
+        ButtonListener buttonListener = new ButtonListener(this);
+        mylocation.setOnClickListener(buttonListener);
+        addmarker.setOnClickListener(buttonListener);
+
+        MapGenerator mapGenerator = new MapGenerator(this);
+        map = mapGenerator.generateMap();
+
+        //뒤로가기 버튼 핸들러
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
+        Marker building = new Marker(map);
+        GeoPoint point = new GeoPoint(33.45736, 126.56017);
+        building.setPosition(point);
+        building.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        map.getOverlays().add(building);
+
+
         building.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
@@ -541,8 +565,6 @@ public class Map_activity extends AppCompatActivity {
                 // WRITE_EXTERNAL_STORAGE is required in order to show the map
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         });
-
-
     }
 
     public static Context getContext() {
@@ -600,7 +622,6 @@ public class Map_activity extends AppCompatActivity {
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
     }
-
 
 
     //뒤로가기 핸들러 클래스
