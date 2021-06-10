@@ -1,165 +1,47 @@
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <style>
-        .legalNotice {
-            margin: 0;
-            color: #888;
-            font: 13px/1.25 sans-serif;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        .title {
-            font-size: 1.25em;
-            padding: 1.25em 1em 1em;
-            margin: 0;
-            background: #000;
-            color: #fff;
-            position: relative;
-        }
-
-        .notice, .oss, .compliance, .licenses div {
-            padding: 10px;
-        }
-
-        .oss dl dt {
-            font-size: 14px;
-            font-weight: bold;
-            color: #000;
-            margin-top: 1em;
-        }
-
-        .oss dl dd {
-            margin-left: 20px;
-            word-break: break-all;
-        }
-
-        .oss a, .compliance a {
-            color: -webkit-link;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        .oss i {
-            color: #333;
-        }
-
-        .oss, .compliance, .licenses div {
-            border-top: 1px solid #ccc;
-            padding-top: 1em;
-        }
-
-        .compliance h3, .licenses h1, h3 {
-            color: #000;
-        }
-
-        .licenses div {
-            display: block;
-            word-wrap: break-word;
-        }
-
-        .licenses pre {
-            display: block;
-            word-wrap: break-word;
-            font-family: monospace;
-            margin: 1em 0px;
-        }
-
-        .license pre {
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            max-height: 200px;
-            border: 1px solid #ccc;
-        }
-
-        .license {
-            color: black;
-        }
-
-        .license a {
-            text-decoration: none;
-        }
-
-        details > summary::-webkit-details-marker {
-            display: none
-        }
-
-        .noti_kakao {
-            border: #ffe58f solid 1px;
-            background: #fffbe6;
-            padding:24px;
-            line-height:20px;
-            font-size:12px;
-            margin:12px 0;
-            color:#111111;
-        }
-    </style>
-    <script>
-        function selectLicense(id, licenseId) {
-            var details = document.getElementById(id);
-            if (details.open && details.children.length == 1) {
-                var pre = document.createElement("pre");
-                pre.innerHTML = document.getElementById(licenseId).textContent;
-                details.appendChild(pre);
-            }
-        }
-    </script>
-</head>
-<body revisionId="1lqyq798Rz">
-<div class="legalNotice">
-    <div class="noti_kakao">
-        이 고지문은 주식회사 카카오의 Olive 서비스를 이용하여 작성되었습니다.<br>
-        고지문은 참고용으로만 제공되며, 카카오는 고지문의 내용, 신뢰도, 정확성 등에 대해 어떠한 보증도 하지 않습니다.<br>
-        Olive 와 고지문 사용에 따라 발생하는 모든 책임은 전적으로 사용자에게 있으며, 카카오는 사용자 또는 제3자에 대해 어떠한 책임도 지지 않습니다.<br>
-    </div>
-    <h1 class="title">OSS Notice | NPC_project</h1>
-    <div class="notice"><p>This application is Copyright © (owner name). All rights reserved.</p>
-        <p>The following sets forth attribution notices for third party software that may be contained in this application.</p>
-    </div>
-
-        <div class="oss">
-            <dl>
-                    <dt><strong> Android - platform - frameworks - support</strong></dt>
-                    <dd><a href="https://android.googlesource.com/platform/frameworks/support">https://android.googlesource.com/platform/frameworks/support</a></dd>
-                        <dd>Copyright 2014 The Android Open Source Project</dd>
-                    <dd class="license">
-                                <details id="Android - platform - frameworks - support" ontoggle="selectLicense('Android - platform - frameworks - support', 'Apache-2.0')">
-                                    <summary>Apache License 2.0</summary>
-                                </details>
-                                                </dd>
-                    <dt><strong> Android Constraint Layout Library</strong></dt>
-                    <dd><a href="https://developer.android.com/reference/android/support/constraint/packages">https://developer.android.com/reference/android/support/constraint/packages</a></dd>
-                        <dd>Copyright 2017 The Android Open Source Project</dd>
-                    <dd class="license">
-                                <details id="Android Constraint Layout Library" ontoggle="selectLicense('Android Constraint Layout Library', 'Apache-2.0')">
-                                    <summary>Apache License 2.0</summary>
-                                </details>
-                                                </dd>
-                    <dt><strong> Android Material Components</strong></dt>
-                    <dd><a href="https://developer.android.com/reference/com/google/android/material/packages">https://developer.android.com/reference/com/google/android/material/packages</a></dd>
-                        <dd>Copyright 2018 The Android Open Source Project</dd>
-                    <dd class="license">
-                                <details id="Android Material Components" ontoggle="selectLicense('Android Material Components', 'Apache-2.0')">
-                                    <summary>Apache License 2.0</summary>
-                                </details>
-                                                </dd>
-                    <dt><strong> osmdroid-android</strong></dt>
-                    <dd><a href="https://github.com/osmdroid/osmdroid">https://github.com/osmdroid/osmdroid</a></dd>
-                    <dd class="license">
-                                <details id="osmdroid-android" ontoggle="selectLicense('osmdroid-android', 'Apache-2.0')">
-                                    <summary>Apache License 2.0</summary>
-                                </details>
-                                                </dd>
-            </dl>
-        </div>
+이 고지문은 주식회사 카카오의 Olive 서비스를 이용하여 작성되었습니다.
+고지문은 참고용으로만 제공되며, 카카오는 고지문의 내용, 신뢰도, 정확성 등에 대해 어떠한 보증도 하지 않습니다.
+Olive 와 고지문 사용에 따라 발생하는 모든 책임은 전적으로 사용자에게 있으며, 카카오는 사용자 또는 제3자에 대해 어떠한 책임도 지지 않습니다.
 
 
-        <div class="licenses">
-                    <div id="Apache-2.0"><h1>Apache License 2.0</h1>
-                        <pre style="white-space: pre-wrap;">
+# OSS Notice | NPC\_project #
+
+This application is Copyright © (owner name). All rights reserved.
+
+The following sets forth attribution notices for third party software that may be contained in this application.
+
+ **Android - platform - frameworks - support**
+
+https://android.googlesource.com/platform/frameworks/support
+
+Copyright 2014 The Android Open Source Project
+
+Apache License 2.0
+
+ **Android Constraint Layout Library**
+
+https://developer.android.com/reference/android/support/constraint/packages
+
+Copyright 2017 The Android Open Source Project
+
+Apache License 2.0
+
+ **Android Material Components**
+
+https://developer.android.com/reference/com/google/android/material/packages
+
+Copyright 2018 The Android Open Source Project
+
+Apache License 2.0
+
+ **osmdroid-android**
+
+https://github.com/osmdroid/osmdroid
+
+Apache License 2.0
+
+# Apache License 2.0 #
+
+``````````
 Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
@@ -233,10 +115,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-        </pre>
-                    </div>
-        </div>
-</div>
-</body>
-</html>
-<!-- successful Generated -->
+``````````
