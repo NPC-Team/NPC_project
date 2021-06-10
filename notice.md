@@ -33,9 +33,33 @@ Copyright 2018 The Android Open Source Project
 
 Apache License 2.0
 
+ **Google API for Android**
+
+https://developers.google.com/android/
+
+Copyright 2015 Google, Inc
+
+Apache License 2.0
+
  **osmdroid-android**
 
 https://github.com/osmdroid/osmdroid
+
+Apache License 2.0
+
+ **Square OkHttp**
+
+https://github.com/square/okhttp
+
+Copyright 2014 Square, Inc
+
+Apache License 2.0
+
+ **Square Retrofit**
+
+https://github.com/square/retrofit
+
+Copyright 2013 Square, Inc
 
 Apache License 2.0
 
