@@ -57,7 +57,7 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map_activity extends AppCompatActivity implements LocationListener, MapEventsReceiver {
+public class Map_activity extends AppCompatActivity {
 
     private static Context mContext;
 
@@ -66,20 +66,9 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
 
-    private MyLocationNewOverlay mLocationOverlay;
 
-    int deviceOrientation = 0;
-    float gpsspeed;
-    float gpsbearing;
-    float lat = 0;
-    float lon = 0;
-    float alt = 0;
-
-    private LocationManager lm;
-    private Location currentLocation = null;
-
-    EnableAddMarker addMarker = new EnableAddMarker();
-    ButtonListener buttonListener = new ButtonListener();
+    private Object DrawRoute;
+    private Button CalRouteBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -105,30 +94,34 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         FloatingActionButton mylocation = (FloatingActionButton) findViewById(R.id.mylocation);
         FloatingActionButton addmarker = (FloatingActionButton) findViewById(R.id.addmarker);
 
+        ButtonListener buttonListener = new ButtonListener(this);
         mylocation.setOnClickListener(buttonListener);
         addmarker.setOnClickListener(buttonListener);
+
+        MapGenerator mapGenerator = new MapGenerator(this);
+        map = mapGenerator.generateMap();
 
         //뒤로가기 버튼 핸들러
         backPressCloseHandler = new BackPressCloseHandler(this);
 
-        map = (MapView) findViewById(R.id.map);
-        map.setTileSource(TileSourceFactory.MAPNIK);
-
-        map.setBuiltInZoomControls(true);
-        map.setMultiTouchControls(true);
-
-        IMapController mapController = map.getController();
-        mapController.setZoom(19.5);
-        GeoPoint startPoint = new GeoPoint(33.4585, 126.5611);
-        mapController.setCenter(startPoint);
-
-        mLocationOverlay = new MyLocationNewOverlay(map);
-        mLocationOverlay.enableMyLocation();
-//        mLocationOverlay.enableFollowLocation();
-        map.getOverlays().add(mLocationOverlay);
-
-        MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(this, this);
-        map.getOverlays().add(0, mapEventsOverlay);
+//        map = (MapView) findViewById(R.id.map);
+//        map.setTileSource(TileSourceFactory.MAPNIK);
+//
+//        map.setBuiltInZoomControls(true);
+//        map.setMultiTouchControls(true);
+//
+//        IMapController mapController = map.getController();
+//        mapController.setZoom(19.5);
+//        GeoPoint startPoint = new GeoPoint(33.4585, 126.5611);
+//        mapController.setCenter(startPoint);
+//
+//        mLocationOverlay = new MyLocationNewOverlay(map);
+//        mLocationOverlay.enableMyLocation();
+////        mLocationOverlay.enableFollowLocation();
+//        map.getOverlays().add(mLocationOverlay);
+//
+//        MapEventsOverlay mapEventsOverlay = new MapEventsOverlay(this, this);
+//        map.getOverlays().add(0, mapEventsOverlay);
 
 //        List<GeoPoint> geoPoints = new ArrayList<>();
 //        //add your points here
@@ -522,6 +515,12 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
 
 
 
+
+
+
+
+
+
         //------------------------
 
 
@@ -543,26 +542,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         });
 
-        LocationManager lm = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        try {
-            //on API15 AVDs,network provider fails. no idea why
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-            lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
-        } catch (Exception ex) {
-            //usually permissions or
-            //java.lang.IllegalArgumentException: provider doesn't exist: network
-            ex.printStackTrace();
-        }
+
     }
 
     public static Context getContext() {
@@ -621,52 +601,7 @@ public class Map_activity extends AppCompatActivity implements LocationListener,
         }
     }
 
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
-        if (map == null)
-            return;
 
-        gpsbearing = location.getBearing();
-        gpsspeed = location.getSpeed();
-        lat = (float) location.getLatitude();
-        lon = (float) location.getLongitude();
-        alt = (float) location.getAltitude(); //meters
-
-
-        //use gps bearing instead of the compass
-
-        float t = (360 - gpsbearing);
-        if (t < 0) {
-            t += 360;
-        }
-        if (t > 360) {
-            t -= 360;
-        }
-        //help smooth everything out
-        t = (int) t;
-        t = t / 5;
-        t = (int) t;
-        t = t * 5;
-
-        if (gpsspeed >= 0.01) {
-            map.setMapOrientation(t);
-            map.getController().setCenter(mLocationOverlay.getMyLocation());
-            //otherwise let the compass take over
-        }
-    }
-
-    @SuppressLint("DefaultLocale")
-    @Override
-    public boolean singleTapConfirmedHelper(GeoPoint p) {
-
-        addMarker.addMarker(map, p);
-        return true;
-    }
-
-    @Override
-    public boolean longPressHelper(GeoPoint p) {
-        return false;
-    }
 
     //뒤로가기 핸들러 클래스
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

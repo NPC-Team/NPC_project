@@ -3,10 +3,12 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -23,7 +25,7 @@ public class canigoPopupActivity extends Activity {
     String comevalue;
     RadioButton radiowalk, radiobike, radiocar;
     RadioGroup profileradioGroup;
-
+    private Button CalRouteBtn;
 
 
     @Override
@@ -76,12 +78,32 @@ public class canigoPopupActivity extends Activity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
+        CalRouteBtn = (Button) findViewById(R.id.CalRouteBtn);
+        CalRouteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawRoute drawRoute = new DrawRoute(Map_activity.getContext());
+                Log.d("MyActivity", "Just click: 성공임");
+                finish();
+            }
+        });
+
     }
 
 
 
     //확인 버튼 클릭
     public void mOnClose(View v){
+
+//        CalRouteBtn = (Button) findViewById(R.id.CalRouteBtn);
+//        CalRouteBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DrawRoute drawRoute = new DrawRoute(Map_activity.getContext());
+//                Log.d("MyActivity", "Just click: 성공임");
+//
+//            }
+//        });
         //데이터 전달하기
         Intent intent = new Intent();
         intent.putExtra("형식", profile);
