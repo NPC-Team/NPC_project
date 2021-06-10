@@ -25,10 +25,10 @@ public class DrawRoute {
 
         List<GeoPoint> point = new ArrayList<>();
         //add your points here
-        GeoPoint point1 = new GeoPoint(33.45854,126.56034);
+        GeoPoint point1 = new GeoPoint(33.45869,126.56031);
         GeoPoint point2 = new GeoPoint(33.45869,126.56114);
         GeoPoint point3 = new GeoPoint( 33.45504,126.56115);
-        GeoPoint point4 = new GeoPoint( 33.45481, 126.56180);
+        GeoPoint point4 = new GeoPoint( 33.45504,126.56180);
 
 //        33.45854,126.56034
 //
@@ -48,7 +48,7 @@ public class DrawRoute {
         point.add(point4);
         Polyline line = new Polyline();   //see note below!
         line.setPoints(point);
-        line.setColor(Color.parseColor("#FF6200EE"));
+        line.setColor(Color.parseColor("#8000A6EC"));
         line.setWidth((float)40.0);
         line.getPaint().setStrokeCap(Paint.Cap.ROUND);
         map.getOverlays().add(line);
