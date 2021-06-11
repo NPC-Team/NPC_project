@@ -58,7 +58,6 @@ public class MyInfoWindow extends MarkerInfoWindow {
     public void  CallOsrm() {
 
         RetrofitConnection retrofitConnection = new RetrofitConnection();
-
         Call call =  retrofitConnection.server.getRoute("driving", 13.388860, 52.517037, 13.397634, 52.529407);
         call.enqueue(new Callback() {
             @Override

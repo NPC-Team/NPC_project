@@ -53,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -73,6 +73,44 @@
                 android:entries="@array/campus" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/profileradiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radiowalk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checked="true"
+                    android:text="도보"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/radiobike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="자전거"
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:id="@+id/radiocar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="차량"
+                    android:textColor="@color/black" />
+
+            </RadioGroup>
+        </LinearLayout>
+
     </LinearLayout>
     <!-- Notice -->
 
@@ -90,14 +128,15 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/CalRouteBtn"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:background="#00000000"
+            android:background="@color/jejuBlue"
             android:gravity="center"
             android:onClick="mOnClose"
             android:padding="16dp"
-            android:text="계산"
-            android:textColor="@color/jejuBlue"
+            android:text="경로안내"
+            android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>
     <!--// 닫기 버튼 -->

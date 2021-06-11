@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:background="@color/jejuGreen"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:layout_height="64dp"
+                android:text="정문" />
+
+            <Button
+                android:id="@+id/btnFood1"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="김밥천국" />
+
+            <Button
+                android:id="@+id/btnFood2"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="메가커피" />
+
+            <Button
+                android:id="@+id/btnFood3"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="서브웨이" />
+
+            <Button
+                android:id="@+id/btnFood4"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="카페봄봄" />
+
+            <Button
+                android:id="@+id/btnFood5"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="콘킹부대찌개" />
+
+            <Button
+                android:id="@+id/btnFood6"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="빽다방" />
+
+            <Button
+                android:id="@+id/btnFood7"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="산들애국수" />
+
+            <Button
+                android:id="@+id/btnFood8"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:text="봉구스밥버거" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
